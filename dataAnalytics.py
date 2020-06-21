@@ -1,10 +1,10 @@
 import pandas as p
 import xlrd
 
-df1 = p.read_excel("D:\Pranav Media Files\Documents\Python Mini project\icup.xlsx", sheet_name="sales")
-df2 = p.read_excel("D:\Pranav Media Files\Documents\Python Mini project\icup.xlsx", sheet_name="ticket types")
-df3 = p.read_excel("D:\Pranav Media Files\Documents\Python Mini project\icup.xlsx", sheet_name="theaters")
-df4 = p.read_excel("D:\Pranav Media Files\Documents\Python Mini project\icup.xlsx", sheet_name="movies")
+df1 = p.read_excel("icup.xlsx", sheet_name="sales")
+df2 = p.read_excel("icup.xlsx", sheet_name="ticket types")
+df3 = p.read_excel("icup.xlsx", sheet_name="theaters")
+df4 = p.read_excel("icup.xlsx", sheet_name="movies")
 
 #problem statement 1
 print('PROBLEM STATEMENT 1')

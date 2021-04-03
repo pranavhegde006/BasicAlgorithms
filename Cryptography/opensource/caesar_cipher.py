@@ -1,29 +1,38 @@
-print("\t\t  \t\t\tWelcome to one of the oldest ciphers in the world!!!")
-print("\t\t\tWe do not recommend to encrypt your sensitive information using Caesar cipher")
-print("Go ahead and Enjoy ;)")
-case = int(input("If your plain text is all small letters, Enter \"0\" \nIf your plain text is all capital letters, Enter \"1\" "))
-pl = input("Enter the plain text you want to encrypt: ")
-plain = pl
-key = int(input("Enter the shift key for Caesar encryption: "))
-plli = []
-cip = ""
 
-for i in pl:
-    plli.append(i)
-def error():
-    print("The cipher is case sensitive. Please enter all small or all capital letters only")
+def encryptCaesar(plainText, key):
+    cipherStr = ''
+    plainText = plainText.lower()
+    for i in range(len(plainText)):
+        temp = ord(plainText[i]) - ord('a')
+        cipherStr += chr((temp + key)% 26 + ord('a'))
+    return cipherStr
 
-for j in range(len(plli)):
-    plli[j] = int(ord(plli[j]))
-    plli[j] = plli[j] + key
-    if case == 0:
-        plli[j] = (plli[j] % ord("a")) + ord("a")
-    elif case == 1:
-        plli[j] = (plli[j] % ord("A")) + ord("A")
-    else:
-        error()
-    plli[j] = chr(plli[j])
 
-cip = "".join(plli)
-print("Your plain text was: ", plain)
-print("Your cipher text is: ", cip)
+def decryptCaesar(cipherText, key):
+    messageStr = ''
+    cipherText = cipherText.lower()
+    for i in range(len(cipherText)):
+        temp = ord(cipherText[i]) - ord('a')
+        messageStr += chr((temp - key)% 26 + ord('a'))
+    return messageStr
+
+print("Welcome to CAESAR CIPHER!")
+choice = int(input("\nEnter 1 if you want to encrypt. \nEnter 2 if you want to decrypt. \nEnter 0 to exit:    "))
+
+while choice != 0:
+    message = input("\nEnter your message:  ")
+    key = int(input("Enter your secret key:   "))
+    print()
+    if choice == 1:
+        output = encryptCaesar(message, key)
+        print("Your secret message is:  ", output)
+    elif choice == 2:
+        output = decryptCaesar(message, key)
+        print("Your message is:     ", output)
+    
+    print('-------------------------------------------------------------------')
+    choice = int(input("\nEnter 1 if you want to encrypt. \nEnter 2 if you want to decrypt. \nEnter 0 to exit:    "))
+
+
+print("\nThank you for choosing Caesar cipher by Pranav!")
+print("Find more stuff at https://github.com/pranavhegde006 \n")
